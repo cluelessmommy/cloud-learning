@@ -8,18 +8,22 @@ def get_server_info():
     disk = psutil.disk_usage("/").percent
     return cpu, memory, disk
 
-def get_server_health_status(cpu, memory, disk):
+def get_server_health_status(server):
+
+
+    print(f"CPU: {cpu}")
+    print(f"MEMORY: {memory}")
+    print(f"DISK: {disk}")
+
+
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     print("================================")
     print("       SERVER HEALTH CHECK")
     print("       Time:", current_time)
     print("================================")
-    print(f"CPU Usage: {cpu}%")
-    print(f"Memory Usage: {memory}%")
-    print(f"Disk Usage: {disk}%")
-    #print(f"Number of CPU: {cpu_count}")
-    THRESHOLD = 20
+
+    THRESHOLD = 80
     if cpu < THRESHOLD and memory < THRESHOLD and disk < THRESHOLD:
        # print("SERVER HEALTH STATUS: HEALTHY")
         return "HEALTHY"
@@ -29,7 +33,13 @@ def get_server_health_status(cpu, memory, disk):
 
 for i in range(3):
     cpu, memory, disk = get_server_info()
-    status= get_server_health_status(cpu, memory, disk)
+    server = {
+        "cpu" : cpu,
+        "memory" : memory,
+        "disk" : disk
+    }
+
+    status= get_server_health_status(server)
     print(f"Server Health Status: {status}")
     time.sleep(5)
 
