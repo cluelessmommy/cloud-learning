@@ -19,31 +19,17 @@ def get_server_health_status(cpu, memory, disk):
     print(f"Memory Usage: {memory}%")
     print(f"Disk Usage: {disk}%")
     #print(f"Number of CPU: {cpu_count}")
-    #health status check
-    print("================================")
-    print("       SERVER HEALTH STATUS")
-    print("================================")
-
-    if cpu < 80:
-        print("CPU is healthy")
+    if cpu < 80 and memory < 80 and disk < 80:
+       # print("SERVER HEALTH STATUS: HEALTHY")
+        return "HEALTHY"
     else:
-        print("CPU need attention")
-
-    if memory < 80:
-        print("Memory is healthy")
-    else:
-        print("Memory need attention")
-
-    if disk < 80:
-      print("Disk is healthy")
-    else:
-      print("Disk need attention") 
-    
-    
+        #print("SERVER HEALTH STATUS: CRITICAL")
+        return "CRITICAL"   
 
 for i in range(3):
     cpu, memory, disk = get_server_info()
-    get_server_health_status(cpu, memory, disk)
+    status= get_server_health_status(cpu, memory, disk)
+    print(f"Server Health Status: {status}")
     time.sleep(5)
 
 
