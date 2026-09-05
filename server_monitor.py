@@ -19,7 +19,8 @@ def get_server_health_status(cpu, memory, disk):
     print(f"Memory Usage: {memory}%")
     print(f"Disk Usage: {disk}%")
     #print(f"Number of CPU: {cpu_count}")
-    if cpu < 80 and memory < 80 and disk < 80:
+    THRESHOLD = 20
+    if cpu < THRESHOLD and memory < THRESHOLD and disk < THRESHOLD:
        # print("SERVER HEALTH STATUS: HEALTHY")
         return "HEALTHY"
     else:
