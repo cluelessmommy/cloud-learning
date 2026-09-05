@@ -10,6 +10,7 @@ def get_server_info():
     disk = psutil.disk_usage("/").percent
 
     server = {
+        "name" : "Codespace Server",
         "cpu" : cpu,
         "memory" : memory,
         "disk" : disk
@@ -17,19 +18,20 @@ def get_server_info():
     return server
 
 def get_server_health_status(server):
-
-
-    print(f"CPU: {server['cpu']}")
-    print(f"MEMORY: {server['memory']}")
-    print(f"DISK: {server['disk']}")
-
-
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     print("================================")
     print("       SERVER HEALTH CHECK")
     print("       Time:", current_time)
     print("================================")
+
+    print(f"NAME: {server['name']}")
+    print(f"CPU: {server['cpu']}")
+    print(f"MEMORY: {server['memory']}")
+    print(f"DISK: {server['disk']}")
+
+
+
 
 
     if server['cpu'] < THRESHOLD and server['memory'] < THRESHOLD and server['disk'] < THRESHOLD:
