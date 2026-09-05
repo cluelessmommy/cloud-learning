@@ -1,6 +1,7 @@
 import psutil
 import time
 from datetime import datetime
+import json
 
 THRESHOLD = 80
 
@@ -44,10 +45,15 @@ def get_server_health_status(server):
 for i in range(3):
     server = get_server_info()
 
+    #server_python = json.loads(server_json)
+    #print(server_python)
+
 
     status = get_server_health_status(server)
 
     server.update({"status": status})
+    server_json = json.dumps(server)
+    print(server_json)
     print(f"Server Health Status: {server['status']}")
     time.sleep(5)
 
