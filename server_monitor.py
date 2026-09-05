@@ -39,8 +39,10 @@ for i in range(3):
         "disk" : disk
     }
 
-    status= get_server_health_status(server)
-    print(f"Server Health Status: {status}")
+    status = get_server_health_status(server)
+
+    server.update({"status": status})
+    print(f"Server Health Status: {server['status']}")
     time.sleep(5)
 
 
