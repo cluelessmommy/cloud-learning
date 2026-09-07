@@ -42,6 +42,12 @@ def get_server_health_status(server):
         #print("SERVER HEALTH STATUS: CRITICAL")
         return "CRITICAL"   
 
+with open("server_history.json", "r") as file:
+    old_data = json.load(file)
+
+server_list = old_data
+print(f"Length of Server List:", len(server_list))
+
 for i in range(3):
     server = get_server_info()
 
@@ -53,10 +59,14 @@ for i in range(3):
 
     server.update({"status": status})
     server_json = json.dumps(server)
+    print(f"Server Health: {server['status']}")
+    server_list.append(server)
+
     print(server_json)
-    print(f"Server Health Status: {server['status']}")
     time.sleep(5)
 
+print(f"Length of Server List:", len(server_list))
 
+with open("server_history.json", "w") as file:
+    json.dump(server_list, file, indent=4)
 
-    
