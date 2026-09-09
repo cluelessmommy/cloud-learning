@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Server Monitoring</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Server ID</th>
+            <th>Name</th>
+            <th>CPU</th>
+            <th>Memory</th>
+            <th>Disk</th>
+            <th>Status</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+
+    <tbody id="serverData">
+    </tbody>
+</table>
+
+<div id="output"></div>
+
+
+
+<script>
+fetch("/data")
+    .then(response => response.json())
+    .then(data => {
+       let row = document.createElement("tr");
+       let cell = document.createElement("td");
+       cell.textContent = data[0].id;
+       row.appendChild(cell);
+
+       let nameCell = document.createElement("td");
+       nameCell.textContent = data[0].name;
+       row.appendChild(nameCell);
+
+       let cpuCell = document.createElement("td");
+       cpuCell.textContent = data[0].cpu;
+       row.appendChild(cpuCell);
+
+       let memoryCell = document.createElement("td");
+       memoryCell.textContent = data[0].memory;
+       row.appendChild(memoryCell);
+
+       let diskCell = document.createElement("td");
+       diskCell.textContent = data[0].disk;
+       row.appendChild(diskCell);
+
+       let timeCell = document.createElement("td");
+       timeCell.textContent = data[0].time;
+       row.appendChild(timeCell);
+
+       let statusCell = document.createElement("td");
+       row.appendChild(statusCell);
+
+       document.getElementById("serverData").appendChild(row);
+    });
+</script>
+
+</body>
+
+</html>
