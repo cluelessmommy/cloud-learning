@@ -6,11 +6,14 @@ import json
 THRESHOLD = 80
 
 def get_server_info():
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     cpu = psutil.cpu_percent(interval=1)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
 
     server = {
+        "id" : "server-01",
+        "time" : current_time,
         "name" : "Codespace Server",
         "cpu" : cpu,
         "memory" : memory,
@@ -19,11 +22,11 @@ def get_server_info():
     return server
 
 def get_server_health_status(server):
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
     
     print("================================")
-    print("       SERVER HEALTH CHECK")
-    print("       Time:", current_time)
+    print("       SERVER HEALTH CHECK-", server['id'])
+    print("       Time:", server['time'])
     print("================================")
 
     print(f"NAME: {server['name']}")
@@ -70,3 +73,9 @@ print(f"Length of Server List:", len(server_list))
 with open("server_history.json", "w") as file:
     json.dump(server_list, file, indent=4)
 
+
+
+for server in server_list:
+    if 'id' in server:
+        if server['id'] == "server-01":
+            print(server['time'], server['cpu'])
