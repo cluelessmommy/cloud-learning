@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
 <body>
 
 <h1>Server Monitoring</h1>
@@ -22,42 +29,66 @@
 
 <div id="output"></div>
 
+<div id="lastupdated"></div>
 
 
 <script>
-fetch("/data")
-    .then(response => response.json())
-    .then(data => {
-       let row = document.createElement("tr");
-       let cell = document.createElement("td");
-       cell.textContent = data[0].id;
-       row.appendChild(cell);
+function loadServerData(){
+    fetch("/data")
+        .then(response => response.json())
+        .then(data => {
+        let lastUpdatedTime = data[data.length -1].time;
+        document.getElementById("lastupdated").textContent = "Last Updated: " + lastUpdatedTime;
+        document.getElementById("serverData").textContent = '';
+        for (let server of data) {
+            
 
-       let nameCell = document.createElement("td");
-       nameCell.textContent = data[0].name;
-       row.appendChild(nameCell);
+            let row = document.createElement("tr");
 
-       let cpuCell = document.createElement("td");
-       cpuCell.textContent = data[0].cpu;
-       row.appendChild(cpuCell);
+            let idCell = document.createElement("td");
+            idCell.textContent = server.id || "";
+            row.appendChild(idCell);
 
-       let memoryCell = document.createElement("td");
-       memoryCell.textContent = data[0].memory;
-       row.appendChild(memoryCell);
+            let nameCell = document.createElement("td");
+            nameCell.textContent = server.name || "";
+            row.appendChild(nameCell);
 
-       let diskCell = document.createElement("td");
-       diskCell.textContent = data[0].disk;
-       row.appendChild(diskCell);
+            let cpuCell = document.createElement("td");
+            cpuCell.textContent = server.cpu || " ";
+            row.appendChild(cpuCell);
 
-       let timeCell = document.createElement("td");
-       timeCell.textContent = data[0].time;
-       row.appendChild(timeCell);
+            let memoryCell = document.createElement("td");
+            memoryCell.textContent = server.memory || " ";
+            row.appendChild(memoryCell);
 
-       let statusCell = document.createElement("td");
-       row.appendChild(statusCell);
+            let diskCell = document.createElement("td");
+            diskCell.textContent = server.disk || " ";
+            row.appendChild(diskCell);
 
-       document.getElementById("serverData").appendChild(row);
-    });
+            let statusCell = document.createElement("td");
+            statusCell.textContent = server.status || "";
+            row.appendChild(statusCell);
+
+            let timeCell = document.createElement("td");
+            timeCell.textContent = server.time || "";
+            row.appendChild(timeCell);
+
+            document.getElementById("serverData").appendChild(row);
+        }   
+        
+        
+
+        });    
+}
+
+loadServerData();
+
+
+setInterval(function() {
+    loadServerData();
+}, 5000);
+
+
 </script>
 
 </body>
