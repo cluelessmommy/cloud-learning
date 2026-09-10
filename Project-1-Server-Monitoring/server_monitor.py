@@ -47,7 +47,6 @@ def get_server_health_status(server):
 
 with open("server_history.json", "r") as file:
     old_data = json.load(file)
-
 server_list = old_data
 print(f"Length of Server List:", len(server_list))
 

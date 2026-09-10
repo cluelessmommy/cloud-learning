@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: postgres-database
+    ports: 
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: data_server01
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: devpass123
+    volumes:
+      - postgres_data:/var/lib/postgresql/18/docker
+
+volumes:
+  postgres_data:

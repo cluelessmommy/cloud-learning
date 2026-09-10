@@ -313,5 +313,140 @@
         "memory": 27.3,
         "disk": 32.3,
         "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 02:28:53",
+        "name": "Codespace Server",
+        "cpu": 16.1,
+        "memory": 27.1,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 02:28:59",
+        "name": "Codespace Server",
+        "cpu": 11.1,
+        "memory": 27.2,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 02:29:05",
+        "name": "Codespace Server",
+        "cpu": 16.8,
+        "memory": 27.2,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 03:46:20",
+        "name": "Codespace Server",
+        "cpu": 37.5,
+        "memory": 43.4,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 03:46:26",
+        "name": "Codespace Server",
+        "cpu": 26.3,
+        "memory": 43.2,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 03:46:32",
+        "name": "Codespace Server",
+        "cpu": 15.0,
+        "memory": 43.3,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 04:08:14",
+        "name": "Codespace Server",
+        "cpu": 42.4,
+        "memory": 43.3,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 04:08:20",
+        "name": "Codespace Server",
+        "cpu": 16.0,
+        "memory": 43.3,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 04:08:26",
+        "name": "Codespace Server",
+        "cpu": 20.1,
+        "memory": 43.4,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 04:10:03",
+        "name": "Codespace Server",
+        "cpu": 30.5,
+        "memory": 43.3,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 04:10:09",
+        "name": "Codespace Server",
+        "cpu": 15.8,
+        "memory": 43.5,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 04:10:15",
+        "name": "Codespace Server",
+        "cpu": 14.5,
+        "memory": 43.5,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 05:28:57",
+        "name": "Codespace Server",
+        "cpu": 24.2,
+        "memory": 45.6,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 05:29:03",
+        "name": "Codespace Server",
+        "cpu": 13.0,
+        "memory": 45.7,
+        "disk": 32.4,
+        "status": "HEALTHY"
+    },
+    {
+        "id": "server-01",
+        "time": "2026-09-10 05:29:09",
+        "name": "Codespace Server",
+        "cpu": 15.1,
+        "memory": 45.7,
+        "disk": 32.4,
+        "status": "HEALTHY"
     }
 ]
