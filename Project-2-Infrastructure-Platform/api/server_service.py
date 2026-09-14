@@ -81,3 +81,41 @@ def get_one_server(server_id):
     cursor.close()
     connection.close()
     return server
+
+doc
+# ------ update server -----------------------
+def update_server(server_id, hostname, ip_address, os, environment):
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        UPDATE servers
+        SET hostname = %s,
+            ip_address = %s,
+            os = %s,
+            environment = %s
+        WHERE server_id = %s
+        RETURNING server_id, hostname, ip_address, os, environment
+    """, (hostname, ip_address, os, environment, server_id))
+
+    row = cursor.fetchone()
+
+    if row is None:
+        connection.rollback()
+        cursor.close()
+        connection.close()
+        return None
+
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+
+    return {
+        "server_id": row[0],
+        "hostname": row[1],
+        "ip_address": str(row[2]),
+        "os": row[3],
+        "environment": row[4]
+    } 
+
